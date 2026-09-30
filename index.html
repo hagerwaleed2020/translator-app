@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Translator</title>
+  </head>
+  <body>
+    <div
+      class="bg-secondary w-100 vh-100 d-flex align-items-center justify-content-center"
+    >
+      <div
+        class="bg-black translator-div text-center p-3 d-flex flex-column gap-3 align-items-center rounded-3"
+      >
+        <h1 class="text-light">Translator App</h1>
+        <div
+          class="d-flex justify-content-evenly gap-3 align-items-center flex-wrap"
+        >
+          <textarea
+            id="textAreaOne"
+            class="bg-secondary text-light rounded-2 border"
+          ></textarea>
+          <textarea
+            id="textAreaTwo"
+            class="bg-dark text-light rounded-2 border"
+            disabled
+          ></textarea>
+        </div>
+        <div class="d-flex justify-content-between gap-4">
+          <select class="form-select text-light bg-dark selectOne"></select>
+          <select class="form-select text-light bg-dark selectTwo"></select>
+        </div>
+        <button class="btn btn-outline-primary">Translate</button>
+      </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
