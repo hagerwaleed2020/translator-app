@@ -105,14 +105,19 @@ const translateBtn = document.querySelector(".btn");
 const languages = Object.entries(countries);
 
 languages.forEach((language) => {
-  selectOne.innerHTML += `<option value="${language[0]}">${language[1]}</option>`;
-  selectTwo.innerHTML += `<option value="${language[0]}">${language[1]}</option>`;
+  if (language[1] == "English") {
+    selectOne.innerHTML += `<option value="${language[0]}" selected>${language[1]}</option>`;
+    selectTwo.innerHTML += `<option value="${language[0]}">${language[1]}</option>`;
+  } else {
+    if (language[1] == "Arabic") {
+      selectOne.innerHTML += `<option value="${language[0]}">${language[1]}</option>`;
+      selectTwo.innerHTML += `<option value="${language[0]}" selected>${language[1]}</option>`;
+    } else {
+      selectOne.innerHTML += `<option value="${language[0]}">${language[1]}</option>`;
+      selectTwo.innerHTML += `<option value="${language[0]}">${language[1]}</option>`;
+    }
+  }
 });
-
-//for (var i in countries) {
-//selectOne.innerHTML += `<option value="${i}">${countries[i]}</option>`;
-//selectTwo.innerHTML += `<option value="${i}">${countries[i]}</option>`;
-//}
 
 translateBtn.addEventListener("click", () => {
   if (selectOne.value == selectTwo.value) {
