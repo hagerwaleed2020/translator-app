@@ -109,15 +109,24 @@ languages.forEach((language) => {
   selectTwo.innerHTML += `<option value="${language[0]}">${language[1]}</option>`;
 });
 
+//for (var i in countries) {
+//selectOne.innerHTML += `<option value="${i}">${countries[i]}</option>`;
+//selectTwo.innerHTML += `<option value="${i}">${countries[i]}</option>`;
+//}
+
 translateBtn.addEventListener("click", () => {
-  fetch(
-    `https://api.mymemory.translated.net/get?q=${textAreaOne.value}&langpair=${selectOne.value}|${selectTwo.value}`,
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      textAreaTwo.value = data.responseData.translatedText;
-    })
-    .catch((e) => {
-      textAreaTwo.value = e.message;
-    });
+  if (selectOne.value == selectTwo.value) {
+    textAreaTwo.innerHTML = "PLEASE SELECT TWO DIFFERENT LANGUAGES";
+  } else {
+    fetch(
+      `https://api.mymemory.translated.net/get?q=${textAreaOne.value}&langpair=${selectOne.value}|${selectTwo.value}`,
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        textAreaTwo.value = data.responseData.translatedText;
+      })
+      .catch((e) => {
+        textAreaTwo.value = e.message;
+      });
+  }
 });
